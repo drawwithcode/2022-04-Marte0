@@ -8,10 +8,6 @@ let selectedColor = (222, 0, 0);
 
 function setup() {
   
-    if (DeviceOrientationEvent && DeviceOrientationEvent.requestPermission) {
-    DeviceOrientationEvent.requestPermission();
-  }
-  
   createCanvas(windowWidth, windowHeight);
   cx = width / 2;
   cy = height / 2;
@@ -66,17 +62,15 @@ function draw() {
     }
 }
 
-function touchEnded(event) {
-  if (DeviceOrientationEvent && DeviceOrientationEvent.requestPermission) {
-    DeviceOrientationEvent.requestPermission();
-  }
-}
-
 function paint() {
   path.push({ x: cx, y: cy, end: false, colore: selectedColor });
 }
 
 function touchEnded() {
+  
+    if (DeviceOrientationEvent && DeviceOrientationEvent.requestPermission) {
+    DeviceOrientationEvent.requestPermission();
+  }
   console.log("miao");
   path.push({ x: cx, y: cy, end: true, colore: selectedColor });
 }
