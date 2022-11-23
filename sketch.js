@@ -7,6 +7,11 @@ let blue;
 let selectedColor = (222, 0, 0);
 
 function setup() {
+  
+    if (DeviceOrientationEvent && DeviceOrientationEvent.requestPermission) {
+    DeviceOrientationEvent.requestPermission();
+  }
+  
   createCanvas(windowWidth, windowHeight);
   cx = width / 2;
   cy = height / 2;
